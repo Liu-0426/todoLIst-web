@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+  }
+
+  #sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+    
+  }
+
+  #content {
+    flex: 1;
+    padding: 20px;
+    max-width: 100%; 
+    overflow-x: auto;
+  }
+  .table_show{
+    overflow:auto;
+    max-height: 400px;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: rgb(129, 201, 131);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    max-width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    width: 100%;
+    max-width: 150px; /* 根據需要調整最大寬度 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  th {
+    background-color: #4caf50;
+    color: white;
+    
+  }
+  .box{
+
+    
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  
+  }
+  .container-1 {
+    display: flex;
+  }
+  
+  .container-1 input[type="search"] {
+    width: 80%;
+  }
+  
+  .container-1 button {
+    width: 25%;
+    margin-left: 2%;
+    
+  }
+  
+  
+
+ 
+tr.pinned {
+  background-color:rgb(128, 151, 160); 
+}
+.expired {
+  background-color: #ffcccc; 
+  color: #ff0000; 
+}

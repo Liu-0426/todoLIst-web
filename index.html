@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>待辦事項</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="sidebar">
+    <h2>選擇操作</h2>
+    <button onclick="showAddForm()">製作待辦事項</button>
+    <button onclick="showViewTasks()">查看待辦事項</button>    
+    <button onclick="showEditTasks()">編輯待辦事項</button>  
+  </div>
+
+  <div id="content">
+    
+    <form id="addForm" style="display:block;">
+      <h2>製作待辦事項</h2>
+        <label for="title">標題:</label>
+        <input type="text" id="title" name="title" required>
+  
+        <label for="priority">優先級:</label>
+        <select id="priority" name="priority" required>
+          <option value=1>緊急</option>
+          <option value=2>中等</option>
+          <option value=3>一般</option>
+        </select>
+        
+        <label for="assignee">負責人:</label>
+        <input type="text" id="assignee" name="assignee" required>
+  
+        <label for="description">描述:</label>
+        <textarea id="description" name="description" required></textarea>
+  
+        <label for="deadline">截止日期:</label>
+        <input type="date" id="deadline" name="deadline" required>
+  
+        <button type="button" onclick="addTask()">新增待辦事項</button>
+    </form>
+    <div id = "EditTasks" style="display: none;">
+      <h2>編輯待辦事項列表</h2>
+      <label for = "editTitle">選取標題:</label>
+      <select id="titleDropdown">
+        <option value = "title">請選擇</option>
+      </select>
+      <form id="editTaskForm" style="display:none;">
+        <label for="editPriority">優先級:</label>
+        <select id="editPriority" name="priority" required>
+          <option value="1">緊急</option>
+          <option value="2">中等</option>
+          <option value="3">一般</option>
+        </select>
+        
+        <label for="editAssignee">負責人:</label>
+        <input type="text" id="editAssignee" name="assignee" required>
+  
+        <label for="editDescription">描述:</label>
+        <textarea id="editDescription" name="description" required></textarea>
+  
+        <label for="editDeadline">截止日期:</label>
+        <input type="date" id="editDeadline" name="deadline" required>
+  
+        <button type="button" id = "saveChanges">儲存變更</button>
+      </form>
+      <table>
+        
+      </table>
+    </div>
+    <div id="viewTasks" style="display:none;">
+        <h2>待辦事項列表</h2>     
+        <button onclick="sortByPriority('asc')">按優先級排序（緊急 -> 一般）</button>
+      <button onclick="sortByPriority('desc')">按優先級排序（一般 -> 緊急）</button>
+      <button onclick="sortByDeadline('asc')">按截止日期排序（進到遠）</button>
+      <button onclick="sortByDeadline('desc')">按截止日期排序（遠到進）</button>
+        <div class="box">
+          <div class="container-1"> 
+              <span class="icon"><i class="fa fa-search"></i></span>
+              <div class="bookFinder">
+                <h1>篩選</h1>
+                <form data-bookfinder-form>
+                  <input name="search" type="text" placeholder="請輸入標題……">
+                  <button id="submit">送出</button>
+                </form>                      
+          </div>  
+                
+        </div>       
+        
+        <table class = "table_show">
+            <tbody id ="priorityList">
+                <!--釘選項目-->
+            </tbody>
+          <thead>
+           
+            <tr>
+              
+              <th>標題</th>
+              <th>優先級</th>
+              <th>負責人</th>
+              <th>描述</th>
+              <th>截止日期</th>
+              <th>剩餘天數</th>
+              <th>已完成</th>
+              <th>釘選</th>
+              <th>刪除</th>
+              
+            </tr>
+          </thead>
+          <tbody id="taskList">
+            <!-- 待辦事項將動態顯示在這裡 -->
+          </tbody>
+        </table>
+    </div>
+    
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
